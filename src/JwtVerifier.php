@@ -19,9 +19,9 @@ namespace Okta\JwtVerifier;
 
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
-// use Http\Discovery\HttpClientDiscovery;
-// use Http\Discovery\MessageFactoryDiscovery;
-// use Http\Discovery\UriFactoryDiscovery;
+use Http\Discovery\HttpClientDiscovery;
+use Http\Discovery\MessageFactoryDiscovery;
+use Http\Discovery\UriFactoryDiscovery;
 use Okta\JwtVerifier\Adaptors\Adaptor;
 use Okta\JwtVerifier\Adaptors\AutoDiscover;
 use Okta\JwtVerifier\Discovery\DiscoveryMethod;
