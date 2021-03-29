@@ -20,8 +20,7 @@ namespace Okta\JwtVerifier;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
-use Http\Discovery\MessageFactoryDiscovery;
-use Http\Discovery\UriFactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\MessageFactory;
 use Http\Message\UriFactory;
 use Psr\Http\Message\ResponseInterface;
@@ -56,8 +55,8 @@ class Request
             $httpClient ?: HttpClientDiscovery::find()
         );
 
-        $this->uriFactory = $uriFactory ?: UriFactoryDiscovery::find();
-        $this->messageFactory = $messageFactory ?: MessageFactoryDiscovery::find();
+        $this->uriFactory = $uriFactory ?: Psr17FactoryDiscovery::findUriFactory();
+        $this->messageFactory = $messageFactory ?: Psr17FactoryDiscovery::findRequestFactory();
     }
 
     public function setUrl($url): Request
